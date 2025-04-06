@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enhanced Calculator with Loops</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: aquamarine;
+    }
+    .inputField {
+      margin-bottom: 10px;
+    }
+    label {
+      display: inline-block;
+      width: 80px;
+    }
+    button {
+      padding: 8px 12px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enhanced Calculator with Loops</h1>
+  <div class="inputField">
+    <label for="number1">Number 1:</label>
+    <input type="number" id="number1" placeholder="Enter first number">
+  </div>
+  <div class="inputField">
+    <label for="number2">Number 2:</label>
+    <input type="number" id="number2" placeholder="Enter second number">
+  </div>
+  <button id="calcButton">Calculate</button>
+  <div id="result"></div>
+
+  <script>
+    // Function to perform arithmetic operations and update the HTML content
+    function performCalculation() {
+      // Retrieve and parse the input values using document.getElementById()
+      const num1 = parseFloat(document.getElementById('number1').value);
+      const num2 = parseFloat(document.getElementById('number2').value);
+      
+      // Check for valid number inputs
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById('result').innerHTML = '<p>Please enter valid numbers in both fields.</p>';
+        return;
+      }
+      
+      // Perform arithmetic operations
+      const sum = num1 + num2;
+      const product = num1 * num2;
+      const difference = num1 - num2;
+      const quotient = num2 !== 0 ? num1 / num2 : 'undefined (division by zero)';
+      
+      // Use comparative operators to compare sum and product
+      let comparison;
+      if (sum > product) {
+        comparison = 'greater than';
+      } else if (sum < product) {
+        comparison = 'less than';
+      } else {
+        comparison = 'equal to';
+      }
+      
+      // Demonstrate a loop: Create a multiplication table for the sum using a for-loop
+      let tableHTML = '<ul>';
+      for (let i = 1; i <= 5; i++) {
+        tableHTML += `<li>${sum} x ${i} = ${sum * i}</li>`;
+      }
+      tableHTML += '</ul>';
+
+      // Additional loop demonstration: List even numbers between 1 and 10
+      let evenNumbersHTML = '<ul>';
+      for (let i = 1; i <= 10; i++) {
+        if (i % 2 === 0) {
+          evenNumbersHTML += `<li>${i}</li>`;
+        }
+      }
+      evenNumbersHTML += '</ul>';
+      
+      // Update the result div with the calculated values and loop-generated content
+      document.getElementById('result').innerHTML = `
+        <p>Sum: ${sum}</p>
+        <p>Product: ${product}</p>
+        <p>The sum is ${comparison} the product.</p>
+        <p>Difference: ${difference}</p>
+        <p>Quotient: ${typeof quotient === 'number' ? quotient.toFixed(2) : quotient}</p>
+        <h3>Multiplication Table for Sum</h3>
+        ${tableHTML}
+        <h3>Even Numbers Between 1 and 10</h3>
+        ${evenNumbersHTML}
+      `;
+    }
+    
+    // Attach click event to the button using addEventListener
+    document.getElementById('calcButton').addEventListener('click', performCalculation);
+  </script>
+</body>
+</html>

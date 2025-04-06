@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color:blanchedalmond;
+  }
+  
+  .inputField {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: inline-block;
+    width: 80px;
+  }
+  
+  button {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+  
+  #result {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  

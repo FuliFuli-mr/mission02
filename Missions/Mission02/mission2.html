@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Enhanced Calculator with Loops</title>
-  <link rel="stylesheet" href="mission2.css">
-</head>
-<body>
-  <h1>Enhanced Calculator with Loops</h1>
-  <div class="inputField">
-    <label for="number1">Number 1:</label>
-    <input type="number" id="number1" placeholder="Enter first number">
-  </div>
-  <div class="inputField">
-    <label for="number2">Number 2:</label>
-    <input type="number" id="number2" placeholder="Enter second number">
-  </div>
-  <button id="calcButton">Calculate</button>
-  <div id="result"></div>
-  
-  <script src="mission2.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calculator with Loops</title>
+    <link rel="stylesheet" href="mission2.css" />
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <div class="container">
+      <h1>Calculator with Loops</h1>
+      <div class="inputField">
+        <label for="number1">Number 1:</label>
+        <input type="number" id="number1" placeholder="Enter first number" />
+      </div>
+      <div class="inputField">
+        <label for="number2">Number 2:</label>
+        <input type="number" id="number2" placeholder="Enter second number" />
+      </div>
+      <button id="calcButton">Calculate</button>
+      <button id="clearButton">Clear Results</button>
+      <div id="result"></div>
+
+      <hr />
+
+      <h2>DOM Manipulation with QuerySelector</h2>
+      <button id="changeTextButton">Toggle Text & Background</button>
+      <div id="changeTextDiv">
+        This text will change when the button is pressed.
+      </div>
+    </div>
+    <!-- Slide-In Menu for Calculation Results -->
+    <div id="slideMenu" class="slide-menu">
+      <button id="closeSlideMenu" class="close-btn">&times; Close</button>
+      <div id="slideMenuContent"></div>
+    </div>
+
+    <script src="mission2.js"></script>
+  </body>
 </html>

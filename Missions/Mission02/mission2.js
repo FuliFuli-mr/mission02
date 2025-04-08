@@ -92,30 +92,26 @@ function toggleTextAndBackground() {
   const toggledText = "The text has been changed!";
 
   // Check current state and toggle both the body background and the div text
-  if (
-    bodyElement.style.backgroundColor === "lightblue" &&
-    containerElement.style.backgroundColor === "blanchedalmond" &&
-    changeDiv.textContent === toggledText &&
-    changeDiv.style.color === "white" &&
-    changeDiv.style.backgroundColor === "black"
-  ) {
-    // Revert to default state
-    bodyElement.style.backgroundColor = "";
-    containerElement.style.backgroundColor = "";
+  // Toggle body background
+  bodyElement.classList.toggle("body-default");
+  bodyElement.classList.toggle("body-toggled");
+
+  // Toggle container background
+  containerElement.classList.toggle("container-default");
+  containerElement.classList.toggle("container-toggled");
+
+  // Toggle text and background color of the div
+  changeDiv.classList.toggle("default-state");
+  changeDiv.classList.toggle("toggled-state");
+
+  if (changeDiv.textContent === toggledText) {
     changeDiv.textContent = defaultText;
-    changeDiv.style.color = "";
-    changeDiv.style.backgroundColor = "";
   } else {
-    // Apply toggled state
-    bodyElement.style.backgroundColor = "lightblue";
-    containerElement.style.backgroundColor = "blanchedalmond";
     changeDiv.textContent = toggledText;
-    changeDiv.style.color = "white";
-    changeDiv.style.backgroundColor = "black";
   }
 }
 
-function clearResults() {
+function clearInputs() {
   document.getElementById("result").innerHTML = "";
   // Clear the input fields
   document.getElementById("number1").value = "";
@@ -127,7 +123,7 @@ function clearResults() {
 document
   .getElementById("calcButton")
   .addEventListener("click", performCalculation);
-document.getElementById("clearButton").addEventListener("click", clearResults);
+document.getElementById("clearButton").addEventListener("click", clearInputs);
 document
   .getElementById("changeTextButton")
   .addEventListener("click", toggleTextAndBackground);
@@ -137,4 +133,5 @@ document
   .addEventListener("click", function () {
     document.getElementById("slideMenu").classList.remove("open");
     document.querySelector(".backdrop").classList.remove("show");
+    clearInputs();
   });
